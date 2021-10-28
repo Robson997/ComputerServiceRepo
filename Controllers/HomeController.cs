@@ -37,7 +37,6 @@ namespace ComputerService.Controllers
         {
             CatchData();
             //FiltrData("procesor",items);
-            
             return View(this);
         }
 
