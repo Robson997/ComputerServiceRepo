@@ -1,0 +1,228 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+a.navbar-brand {
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
+}
+
+/* Provide sufficient contrast against white background */
+a {
+  color: #1861ac;
+
+}
+.nav-tabs{
+    justify-content: center;
+    padding: inherit;
+    
+}
+.btn {
+    margin-left: auto;
+    margin-right: auto;
+
+
+}
+.s-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: center;
+    overflow: hidden;
+}
+
+.filterDiv {
+    text-align: center;
+    width: 95%;
+    height: 95%;
+   
+    overflow: hidden;
+    display: none;
+}
+
+
+
+/* The "show" class is added to the filtered elements */
+.show {
+    display: block;
+}
+
+/* Style the buttons */
+.btn-filtr{
+    border: none;
+    outline: none;
+    padding: 12px 16px;
+    background-color: #f1f1f1;
+    cursor: pointer;
+}
+
+    /* Add a light grey background on mouse-over */
+    .btn-filtr:hover {
+        background-color: #ddd;
+    }
+
+    /* Add a dark background to the active button */
+    .btn-filtr.active {
+        background-color: #666;
+        color: white;
+    }
+
+
+#part {
+    
+}
+
+#images {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+    display: block;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+#images:hover {
+    border-radius: 50%;
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+}
+.btn-primary {
+
+
+    display: inline-block;
+    padding: 15px 25px;
+    font-size: 24px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+    margin-left: auto;
+    margin-right: auto;
+}
+.button {
+
+    background-color: #e6630c;
+    color: white;
+    width: auto;
+    margin: 0 auto;
+}
+    .button:hover {
+        background-color: #c66406;
+    }
+.Price{
+    font-weight: bold;
+
+}
+
+
+picture {
+    
+}
+.picture img {
+    transition-duration: 3s;
+    box-shadow: 5px 5px 10px;
+
+}
+    .picture img:hover {
+
+        transform: scale(1.5);
+        -webkit-transform: scale(1.2);
+        -moz-transform: scale(1.2);
+        z-index: 0;
+    }
+
+.line2 {
+    line-break: auto;
+}
+
+
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+th, td {
+    border-bottom: 1px solid #ddd;
+}
+li.tab a.login {
+    background-image: url(tab.gif);
+    width: 138px;
+    text-align: center;
+    color: #1b6ec2;
+    text-decoration: none;
+    border-bottom: 1px black solid;
+    float: left;
+}
+/*zakładka żeby po najechaniu stawała się biała oraz była jakas interakcja*/
+li.tab {
+    display: inline;
+}
+    li.tab a:hover {
+        background-image: url(tabhover.gif);
+        text-decoration: none;
+        font-weight: 900;
+        background-color: #ffffff;
+    }
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  font-size: 14px;
+}
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.border-top {
+  border-top: 1px solid #e5e5e5;
+}
+.border-bottom {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy {
+  font-size: 1rem;
+  line-height: inherit;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+  font-family: 'Book Antiqua',sans-serif;
+
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  white-space: nowrap;
+  line-height: 60px; /* Vertically center the text there */
+}

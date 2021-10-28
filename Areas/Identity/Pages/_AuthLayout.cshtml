@@ -1,0 +1,44 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+<body>
+    @RenderSection("Scripts", required: false)
+</body>
+
+<div class="row">
+
+    <div class="col-md-6 offset-md-3">
+        <div class="card tab-content ">
+            <div class="card-header">
+                <div id="Part">
+                    <ul class="nav nav-tabs card-header-tabs ">
+                        <li class="nav-item tab">
+                            <a class="nav-link login" href='/Identity/Account/Login'>Log In</a>
+                        </li>
+                        <li class="nav-item tab">
+                            <a class="nav-link login" href='/Identity/Account/Register'>Register</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        @RenderBody()
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+
+
+
+
