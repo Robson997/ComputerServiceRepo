@@ -28,13 +28,14 @@ a {
     grid-template-columns: repeat(3, 1fr);
     align-items: center;
     overflow: hidden;
+
 }
 
 .filterDiv {
     text-align: center;
     width: 95%;
-    height: 95%;
-   
+    height: 98%;
+   background-color:azure;
     overflow: hidden;
     display: none;
 }

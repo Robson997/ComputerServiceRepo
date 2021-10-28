@@ -40,12 +40,12 @@
         <tbody>-->
 
 <div id="myBtnContainer">
-    <button class="btn-filtr active" onclick="@Model.UpdateInex("none")">
+    <button class="btn-filtr active" onclick="filterSelection('all')">
         Show all</button>
-        <button class="btn-filtr" onclick="@Model.UpdateInex("Procesor")" ;> Procesor</button>
-        <button class="btn-filtr" onclick="@Model.UpdateInex("monitor")" ;> Monitor</button>
-        <button class="btn-filtr" onclick="@Model.UpdateInex("cards")" ;"> Cards</button>
-        <button class="btn-filtr" onclick="@Model.UpdateInex("headphones")" ;"> Headophones</button>
+        <button class="btn-filtr" onclick="filterSelection('Procesor')" ;> Procesor</button>
+        <button class="btn-filtr" onclick="filterSelection('monitor')" ;> Monitor</button>
+        <button class="btn-filtr" onclick="filterSelection('Card')" ;"> Cards</button>
+        <button class="btn-filtr" onclick="filterSelection('Headphones')" ;"> Headophones</button>
         <p></p>
 
 </div>
@@ -55,7 +55,7 @@
     @{
         if (Model != null)
         {
-            foreach (var Data in Model.itemsToPost)
+            foreach (var Data in Model.items)
             {
                 <div class="filterDiv @Data.Type">
                     <div class="ss-container">
@@ -63,6 +63,8 @@
                         <p></p>
                         <div class="picture"><img src="/@Data.Image" width=200 height=200 alt="Alternate Text" /></div>
                         <div><h2>@Data.Name</h2></div>
+                        <hr style="color: black; height: 10px" ;>
+
                         <div class="line2"></div>
                         <div class="Price">Price: $@Convert.ToInt32(Data.Price)</div>
                         @if (Convert.ToInt32(Data.Price) > 200)
@@ -73,11 +75,13 @@
                         {
                             <div> free transort for over $200 </div>
                         }
-                        <div class="line2"></div>
+                        <hr style="color: black; height: 3px;">
                         <div><button type="submit" class="button">Add to cart</button></div>
                         <p></p>
                         <p></p>
-                       
+                        <p></p>
+                        <p></p>
+
                     </div>
                 </div>
 
