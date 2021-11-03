@@ -12,6 +12,21 @@ a {
   color: #1861ac;
 
 }
+.quest{
+    
+    border: solid grey;
+}
+.question {
+    border: solid grey;
+    color: white;
+    background: grey;
+    
+}
+.line2{
+    background-color: #c5efff;
+    border-bottom:solid;
+    border-top:solid;
+}
 .nav-tabs{
     justify-content: center;
     padding: inherit;
@@ -141,9 +156,7 @@ picture {
         z-index: 0;
     }
 
-.line2 {
-    line-break: auto;
-}
+
 
 
 

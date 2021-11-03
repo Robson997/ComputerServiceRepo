@@ -4,14 +4,27 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using ComputerService.Models;
 
 namespace ComputerService.Controllers
 {
+    
     public class ServiceController : Controller
     {
+        public bool[] Arr { get; private set; }
+        [HttpPost]
+        public ActionResult PutToArray(string q1,string q2)
+        {
+           string[] Array =new string[10];
+            Array[0] = q1;
+            Array[1] = q2;
+
+            return Content(Array.ToString());
+        }
         // GET: Service
         public ActionResult Index()
         {
+           
             return View();
         }
 

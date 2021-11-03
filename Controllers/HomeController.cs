@@ -22,8 +22,8 @@ namespace ComputerService.Controllers
         SqlCommand command = new SqlCommand();
         SqlDataReader datareader;
         SqlConnection connection = new SqlConnection();
-        public List<Items> items = new List<Items>();
-        public List<Items> itemsToPost = new List<Items>();
+        public List<Item> items = new List<Item>();
+        public List<Item> itemsToPost = new List<Item>();
         private readonly ILogger<HomeController> _logger;
 
         public HomeController(ILogger<HomeController> logger)
@@ -49,27 +49,27 @@ namespace ComputerService.Controllers
                
                 case("headphones"):
            
-                     itemsToPost = new List<Items>(items.Where(x => x.Type.ToLower().Contains(input.ToLower())).ToList());
+                     itemsToPost = new List<Item>(items.Where(x => x.Type.ToLower().Contains(input.ToLower())).ToList());
                      break;
                 case ("monitor"):
 
-                    itemsToPost = new List<Items>(items.Where(x => x.Type.ToLower().Contains(input.ToLower())).ToList());
+                    itemsToPost = new List<Item>(items.Where(x => x.Type.ToLower().Contains(input.ToLower())).ToList());
                     break;
                 case ("procesor"):
-                    itemsToPost = new List<Items>(items.Where(x => x.Type.ToLower().Contains(input.ToLower())).ToList());
+                    itemsToPost = new List<Item>(items.Where(x => x.Type.ToLower().Contains(input.ToLower())).ToList());
                     break;
                 case ("card"):
-                    itemsToPost = new List<Items>(items.Where(x => x.Type.ToLower().Contains(input.ToLower())).ToList());
+                    itemsToPost = new List<Item>(items.Where(x => x.Type.ToLower().Contains(input.ToLower())).ToList());
                     break;
                 default:
-                    itemsToPost = new List<Items>(items);
+                    itemsToPost = new List<Item>(items);
                     break;
             }
             
             
             return Index();
         }
-        private Items FiltrData(string condition, IEnumerable<Items> It)
+        private Item FiltrData(string condition, IEnumerable<Item> It)
         {
             return It.Where(x => x.Type == condition).FirstOrDefault();
         }
@@ -94,7 +94,7 @@ namespace ComputerService.Controllers
                 datareader = command.ExecuteReader();
                 while(datareader.Read())
                 {
-                    items.Add(new Items()
+                    items.Add(new Item()
 
                     {
                         Name = datareader["name"].ToString(),

@@ -1,28 +1,135 @@
-﻿
+﻿@model ComputerService.Controllers.ServiceController
 @{
     ViewData["Title"] = "Service";
-    //Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<script src="~/js/Service.js"></script>
 
 
-<h1>Service</h1>
-<form>
-    <p>Please select your preferred contact method:</p>
-    <div>
+<form action="" method="post">
+
+    <div><h4>Mamy parę pytań odnośnie awarii twojego komputera. Rozwiąż krótki formularz a pomożemy rozwiązać twój problem!!!</h4></div>
+    <div class="quest">
+        <p class="question">  1.Czy się włącza?</p>
+        <input type="radio" id="choiceq1"
+               name="question-1" value="1">
+        <label for="question-1">  Tak</label>
+
+        <input type="radio" id="choiceq2"
+               name="question-1" value="0">
+        <label for="question-1">  Nie</label>
+
+
+    </div>
+    <p></p>
+    <p></p>
+
+    <div class="quest">
+        <p class="question">  2.Czy wyświetla sie niebieski ekran?</p>
         <input type="radio" id="contactChoice1"
-               name="contact" value="email">
-        <label for="contactChoice1">Email</label>
+               name="question-2" value="email">
+        <label for="contactChoice1">  Tak</label>
 
         <input type="radio" id="contactChoice2"
-               name="contact" value="phone">
-        <label for="contactChoice2">Phone</label>
+               name="question-2" value="phone">
+        <label for="contactChoice2">  Nie</label>
 
-        <input type="radio" id="contactChoice3"
-               name="contact" value="mail">
-        <label for="contactChoice3">Mail</label>
     </div>
+    <p></p>
+    <p></p>
+
+    <div class="quest">
+        <p class="question">  3.Czy się zacina?</p>
+        <input type="radio" id="contactChoice1"
+               name="question-3" value="email">
+        <label for="contactChoice1">  Tak</label>
+
+        <input type="radio" id="contactChoice2"
+               name="question-3" value="phone">
+        <label for="contactChoice2">  Nie</label>
+
+    </div>
+    <p></p>
+    <p></p>
+    <div class="quest">
+        <p class="question">  4.Czy został kupiony więcej niż 5 lat temu?</p>
+        <input type="radio" id="contactChoice1"
+               name="question-4" value="email">
+        <label for="contactChoice1">  Tak</label>
+
+        <input type="radio" id="contactChoice2"
+               name="question-4" value="phone">
+        <label for="contactChoice2">  Nie</label>
+
+    </div>
+    <p></p>
+    <p></p>
+
+
+
+
+    <div class="quest">
+        <p class="question">  5.Czy doznał uszkodzenia mechanicznego?</p>
+        <input type="radio" id="contactChoice1"
+               name="question-5" value="email">
+        <label for="contactChoice1">  Tak</label>
+
+        <input type="radio" id="contactChoice2"
+               name="question-5" value="phone">
+        <label for="contactChoice2">  Nie</label>
+
+    </div>
+    <p></p>
+    <p></p>
+
+    <div class="quest">
+        <p class="question">  6.Czy możliwa jest łączność z internetem?</p>
+        <input type="radio" id="contactChoice1"
+               name="question-6" value="email">
+        <label for="contactChoice1">  Tak</label>
+
+        <input type="radio" id="contactChoice2"
+               name="question-6" value="phone">
+        <label for="contactChoice2">  Nie</label>
+
+    </div>
+    <p></p>
+    <p></p>
+
+    <div class="quest">
+        <p class="question">  7.Czy się przegrzewa?</p>
+        <input type="radio" id="contactChoice1"
+               name="question-7" value="email">
+        <label for="contactChoice1">  Tak</label>
+
+        <input type="radio" id="contactChoice2"
+               name="question-7" value="phone">
+        <label for="contactChoice2">  Nie</label>
+
+    </div>
+    <p></p>
+    <p></p>
+
+    <div class="quest">
+        <p class="question">  8.Czy występuję problem z wykrywaniem urządzeń?</p>
+        <input type="radio" id="contactChoice1"
+               name="question-8" value="email">
+        <label for="contactChoice1">  Tak</label>
+
+        <input type="radio" id="contactChoice2"
+               name="question-8" value="phone">
+        <label for="contactChoice2">  Nie</label>
+
+    </div>
+    <p></p>
+    <p></p>
+
+
     <div>
         <button type="submit">Submit</button>
     </div>
 </form>
+
+
+

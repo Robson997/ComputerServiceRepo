@@ -18,7 +18,8 @@
 
     "Image"};
 }
-@model ComputerService.Controllers.HomeController
+
+    
 <!---<div class="table">
     <table class="table">
         <thead>
@@ -63,21 +64,23 @@
                         <p></p>
                         <div class="picture"><img src="/@Data.Image" width=200 height=200 alt="Alternate Text" /></div>
                         <div><h2>@Data.Name</h2></div>
-                        <hr style="color: black; height: 10px" ;>
+                        <div class="line2">
 
-                        <div class="line2"></div>
-                        <div class="Price">Price: $@Convert.ToInt32(Data.Price)</div>
-                        @if (Convert.ToInt32(Data.Price) > 200)
-                        {
-                            <div> transport for free </div>
-                        }
-                        else
-                        {
-                            <div> free transort for over $200 </div>
-                        }
-                        <hr style="color: black; height: 3px;">
-                        <div><button type="submit" class="button">Add to cart</button></div>
+                            <div class="Price">Price: <span style="color: red">$@Convert.ToInt32(Data.Price)</span></div>
+                            @if (Convert.ToInt32(Data.Price) > 200)
+                            {
+                                <div> transport for free </div>
+                            }
+                            else
+                            {
+                                <div> free transort for over $200 </div>
+                            }
+
+                        </div>
                         <p></p>
+                        <p></p>
+                        <div><button type="submit" class="button">Add to cart</button></div>
+
                         <p></p>
                         <p></p>
                         <p></p>
