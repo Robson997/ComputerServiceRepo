@@ -1,4 +1,5 @@
-﻿@model ComputerService.Controllers.ServiceController
+﻿
+@model ComputerService.Models.Question
 @{
     ViewData["Title"] = "Service";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -7,16 +8,16 @@
 <script src="~/js/Service.js"></script>
 
 
-<form action="" method="post">
+<form action="Put" method="post">
 
     <div><h4>Mamy parę pytań odnośnie awarii twojego komputera. Rozwiąż krótki formularz a pomożemy rozwiązać twój problem!!!</h4></div>
     <div class="quest">
         <p class="question">  1.Czy się włącza?</p>
-        <input type="radio" id="choiceq1"
+        <input type="radio" id="q1"
                name="question-1" value="1">
         <label for="question-1">  Tak</label>
 
-        <input type="radio" id="choiceq2"
+        <input type="radio" id="q1"
                name="question-1" value="0">
         <label for="question-1">  Nie</label>
 

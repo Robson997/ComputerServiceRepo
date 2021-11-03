@@ -1,0 +1,56 @@
+﻿@model ComputerService.Models.Question
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>GetQuestion</title>
+</head>
+<body>
+
+<div>
+    <form action="" method="put">
+        <label> </label>
+
+    </form>
+    <h4>Question</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Que)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Que)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Answer)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Answer)
+        </dd>
+    </dl>
+</div>
+<div>
+    <form action="SetQuestion" method="post">
+        <label>Question</label>
+        <input type="text" name="Que" placeholder="Que..." />
+               <br/>
+        <label>Answer</label>
+        <input type="radio" name="Answer" placeholder="Answer..." value="11" />
+               <br/>
+
+        <input type="submit"value="Save">
+    </form>
+</div>
+<div>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    <a asp-controller="Home" asp-action="Privacy">Back to List</a>
+</div>
+   
+</body>
+</html>

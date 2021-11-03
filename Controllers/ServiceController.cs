@@ -16,8 +16,10 @@ namespace ComputerService.Controllers
         public ActionResult PutToArray(string q1,string q2)
         {
            string[] Array =new string[10];
+           string[] ArrayQ =new string[10];
+
             Array[0] = q1;
-            Array[1] = q2;
+            ArrayQ[0] = q2;
 
             return Content(Array.ToString());
         }
@@ -27,7 +29,19 @@ namespace ComputerService.Controllers
            
             return View();
         }
+        public ActionResult GetQuestion()
+        {
+            Question Quest = new Question();
+            Quest.Answer = "1";
+            Quest.Que = "GuesWho";
+            return View(Quest);
 
+        }
+        public ActionResult SetQuestion(string Answer,string Que)
+        {
+            PutToArray(Answer, Que);
+            return Content(Que);
+        }
         // GET: Service/Details/5
         public ActionResult Details(int id)
         {
@@ -37,6 +51,7 @@ namespace ComputerService.Controllers
         // GET: Service/Create
         public ActionResult Create()
         {
+            
             return View();
         }
 
