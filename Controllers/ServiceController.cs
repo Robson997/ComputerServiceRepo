@@ -1,100 +1,38 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using ComputerService.Models;
 
 namespace ComputerService.Controllers
 {
-    
+
     public class ServiceController : Controller
     {
-        
-        
+        #region variables
 
-        public Question Question = new Question();//Question obj
-        [HttpPost]
-        public ActionResult PutToArray(List<string> Answer)//putting to array ans and que
-        {
-           string[] Array =new string[10];
-           //Array.Append(Answer);
+        private readonly Question _question;
+        private readonly Questions _questions;
 
-            return Content(Array.ToString());
+        #endregion
+
+        public ServiceController()
+        { 
+            _questions = new Questions();
+            _question = new Question(_questions.GetQuestions());
         }
+
         // GET: Service
-        public ActionResult Index()
-        {
-           
-            return View();
-        }
-
-        /* public ActionResult AddToArray0()
-         {
-             listQuestion.ListQust.Answer.Add("0");
-             return View();
-         }        
-         public ActionResult AddToArray1()
-         {
-             listQuestion.ListQust.Answer.Add("1");
-             return View();
-         }*/
+        public ActionResult Index() => View();
 
         [HttpGet]
-        public  ActionResult  GetQuestion()//Create Quest object with answer and Question
+        public ActionResult GetQuestion()//Create Quest object with answer and Question
         {
-
-            Question listQuestion = new Question(){ ListQust = new Question(){ Que = new List<string>(), Answer = new List<string>()} };//create list of obj and instance of object in list
-
-
-            listQuestion.ListQust.Que.Add("Does it turn off?");//type Question and default answer to 0
-           listQuestion.ListQust.Answer.Add("0");
-
-            listQuestion.ListQust.Que.Add( "Has it problem with web-connection?");
-          listQuestion.ListQust.Answer.Add( "0");
-            
-            listQuestion.ListQust.Que.Add( "Has been bought  for more than 5 years?");
-           listQuestion.ListQust.Answer.Add( "0"); 
-            
-            listQuestion.ListQust.Que.Add( "Does it frezee?");
-          listQuestion.ListQust.Answer.Add( "0");   
-            
-            listQuestion.ListQust.Que.Add("Have it ever any mechanical accident?");
-            listQuestion.ListQust.Answer.Add("0");
-
-            listQuestion.ListQust.Que.Add( "Does it overheat?");
-           listQuestion.ListQust.Answer.Add( "0");
-            
-            listQuestion.ListQust.Que.Add( "Is problem with devices detection?");
-          listQuestion.ListQust.Answer.Add( "0"); 
-                 
-
-            return View(listQuestion);//return list of object
-
+            return View(_question);//return list of object
         }
+
         [HttpPost]
-        public  Question  GetQuestion(Question listQuestion)
-        {
-            //foreach (var answer in listquestion.selectedanswer)
-            //{
-            //    if (bool.isnullorempty(answer))
-            //    {
-            //        // viewbag.message=
-            //        return "you must mark all radiobutton";
-            //    }
-            //}
-
-            //PutToArray(listQuestion.SelectedAnswer);
-            return listQuestion;
-            
-        }
-
-        public ActionResult SetQuestion(List<string> Answer)
-        {
-            PutToArray( Answer);
-            return View();
-        }
+        public Question GetQuestion(Question listQuestion) =>
+            listQuestion.SelectedAnswer.Count == _questions.GetNumberOfQuestions() ? listQuestion : null;
+        
         // GET: Service/Details/5
         public ActionResult Details(int id)
         {
@@ -104,7 +42,6 @@ namespace ComputerService.Controllers
         // GET: Service/Create
         public ActionResult Create()
         {
-            
             return View();
         }
 

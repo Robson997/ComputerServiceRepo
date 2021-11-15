@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace ComputerService.Models
 {
@@ -9,9 +6,18 @@ namespace ComputerService.Models
     {
         public List<string> Que { get; set; }
         public List<string> Answer { get; set; }
+        public List<string> SelectedAnswer { get; set; }
 
-        public Question ListQust { get; set; }
-        public List<bool> SelectedAnswer { get; set; }
+        public Question(List<string> questions)
+        {
+            Que = new List<string>(questions);
+            SelectedAnswer = new List<string>();
 
+            for (int i = 0; i < Que.Count; i++)
+            {
+                SelectedAnswer.Add("0");
+            }
+        }
+        public Question(){}
     }
 }

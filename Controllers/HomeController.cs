@@ -11,17 +11,13 @@ using System.Data.SqlClient;
 
 namespace ComputerService.Controllers
 {
-
-
-
-
     [Authorize]
    
     public class HomeController : Controller
     {
-        SqlCommand command = new SqlCommand();
+        readonly SqlCommand command = new SqlCommand();
         SqlDataReader datareader;
-        SqlConnection connection = new SqlConnection();
+        readonly SqlConnection connection = new SqlConnection();
         public List<Item> items = new List<Item>();
         public List<Item> itemsToPost = new List<Item>();
         private readonly ILogger<HomeController> _logger;
@@ -48,11 +44,9 @@ namespace ComputerService.Controllers
             {
                
                 case("headphones"):
-           
                      itemsToPost = new List<Item>(items.Where(x => x.Type.ToLower().Contains(input.ToLower())).ToList());
                      break;
                 case ("monitor"):
-
                     itemsToPost = new List<Item>(items.Where(x => x.Type.ToLower().Contains(input.ToLower())).ToList());
                     break;
                 case ("procesor"):
@@ -65,8 +59,6 @@ namespace ComputerService.Controllers
                     itemsToPost = new List<Item>(items);
                     break;
             }
-            
-            
             return Index();
         }
         private Item FiltrData(string condition, IEnumerable<Item> It)
