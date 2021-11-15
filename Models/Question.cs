@@ -7,7 +7,11 @@ namespace ComputerService.Models
 {
     public class Question
     {
-        public string Que { get; set; }
-        public string Answer { get; set; }
+        public List<string> Que { get; set; }
+        public List<string> Answer { get; set; }
+
+        public Question ListQust { get; set; }
+        public List<bool> SelectedAnswer { get; set; }
+
     }
 }

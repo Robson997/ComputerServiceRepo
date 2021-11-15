@@ -1,6 +1,7 @@
 ﻿@model ComputerService.Models.Question
 
 @{
+
     Layout = null;
 }
 
@@ -8,49 +9,84 @@
 
 <html>
 <head>
-    <meta name="viewport" content="width=device-width" />
-    <title>GetQuestion</title>
+    <element onclick="myScript">
+        <meta name="viewport" content="width=device-width" />
+        <title>Service</title>
+        <div>
+            @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+            <a asp-controller="Home" asp-action="Privacy">Back to List</a>
+        </div>
 </head>
 <body>
 
-<div>
-    <form action="" method="put">
-        <label> </label>
 
-    </form>
+
     <h4>Question</h4>
     <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Que)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Que)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Answer)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Answer)
-        </dd>
-    </dl>
-</div>
-<div>
-    <form action="SetQuestion" method="post">
-        <label>Question</label>
-        <input type="text" name="Que" placeholder="Que..." />
-               <br/>
-        <label>Answer</label>
-        <input type="radio" name="Answer" placeholder="Answer..." value="11" />
-               <br/>
 
-        <input type="submit"value="Save">
-    </form>
-</div>
-<div>
-    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
-    <a asp-controller="Home" asp-action="Privacy">Back to List</a>
-</div>
-   
+    <div class="quest">
+        <table>
+            <td>
+                @{ int total = 0; }
+                @foreach (string Q in Model.ListQust.Que)
+                {
+
+
+                    Write(Q);
+
+                    <p></p>
+                    total++;
+
+                }
+            </td>
+
+            <TD>
+
+                @using (Html.BeginForm())
+                {
+
+                    <div>
+                        Yes @Html.RadioButtonFor(Model => Model.SelectedAnswer[0], true)
+                        No @Html.RadioButtonFor(Model => Model.SelectedAnswer[0], false)
+                    </div>
+                    <p></p>
+                    <div>
+                        Yes @Html.RadioButtonFor(Model => Model.SelectedAnswer[1], true)
+                        No @Html.RadioButtonFor(Model => Model.SelectedAnswer[1], false)
+                    </div>
+                    <p></p>
+                    <div>
+                        Yes @Html.RadioButtonFor(Model => Model.SelectedAnswer[2], true)
+                        No @Html.RadioButtonFor(Model => Model.SelectedAnswer[2], false)
+                    </div>
+                    <p></p>
+                    <div>
+                        Yes @Html.RadioButtonFor(Model => Model.SelectedAnswer[3], true)
+                        No @Html.RadioButtonFor(Model => Model.SelectedAnswer[3], false)
+                    </div>
+                    <p></p>
+                    <div>
+                        Yes @Html.RadioButtonFor(Model => Model.SelectedAnswer[4], true)
+                        No @Html.RadioButtonFor(Model => Model.SelectedAnswer[4], false)
+                    </div>
+                    <p></p>
+                    <div>
+                        Yes @Html.RadioButtonFor(Model => Model.SelectedAnswer[5], true)
+                        No @Html.RadioButtonFor(Model => Model.SelectedAnswer[5], false)
+                    </div>
+                    <p></p>
+                    <div>
+                        Yes @Html.RadioButtonFor(Model => Model.SelectedAnswer[6], true)
+                        No @Html.RadioButtonFor(Model => Model.SelectedAnswer[6], false)
+                    </div>
+                    <p></p>
+                    <input type="submit" value="Save">
+                }
+
+            </TD>
+        </table>
+    </div>
+
 </body>
 </html>
+

@@ -11,15 +11,15 @@ namespace ComputerService.Controllers
     
     public class ServiceController : Controller
     {
-        public bool[] Arr { get; private set; }
+        
+        
+
+        public Question Question = new Question();//Question obj
         [HttpPost]
-        public ActionResult PutToArray(string q1,string q2)
+        public ActionResult PutToArray(List<string> Answer)//putting to array ans and que
         {
            string[] Array =new string[10];
-           string[] ArrayQ =new string[10];
-
-            Array[0] = q1;
-            ArrayQ[0] = q2;
+           //Array.Append(Answer);
 
             return Content(Array.ToString());
         }
@@ -29,18 +29,71 @@ namespace ComputerService.Controllers
            
             return View();
         }
-        public ActionResult GetQuestion()
+
+        /* public ActionResult AddToArray0()
+         {
+             listQuestion.ListQust.Answer.Add("0");
+             return View();
+         }        
+         public ActionResult AddToArray1()
+         {
+             listQuestion.ListQust.Answer.Add("1");
+             return View();
+         }*/
+
+        [HttpGet]
+        public  ActionResult  GetQuestion()//Create Quest object with answer and Question
         {
-            Question Quest = new Question();
-            Quest.Answer = "1";
-            Quest.Que = "GuesWho";
-            return View(Quest);
+
+            Question listQuestion = new Question(){ ListQust = new Question(){ Que = new List<string>(), Answer = new List<string>()} };//create list of obj and instance of object in list
+
+
+            listQuestion.ListQust.Que.Add("Does it turn off?");//type Question and default answer to 0
+           listQuestion.ListQust.Answer.Add("0");
+
+            listQuestion.ListQust.Que.Add( "Has it problem with web-connection?");
+          listQuestion.ListQust.Answer.Add( "0");
+            
+            listQuestion.ListQust.Que.Add( "Has been bought  for more than 5 years?");
+           listQuestion.ListQust.Answer.Add( "0"); 
+            
+            listQuestion.ListQust.Que.Add( "Does it frezee?");
+          listQuestion.ListQust.Answer.Add( "0");   
+            
+            listQuestion.ListQust.Que.Add("Have it ever any mechanical accident?");
+            listQuestion.ListQust.Answer.Add("0");
+
+            listQuestion.ListQust.Que.Add( "Does it overheat?");
+           listQuestion.ListQust.Answer.Add( "0");
+            
+            listQuestion.ListQust.Que.Add( "Is problem with devices detection?");
+          listQuestion.ListQust.Answer.Add( "0"); 
+                 
+
+            return View(listQuestion);//return list of object
 
         }
-        public ActionResult SetQuestion(string Answer,string Que)
+        [HttpPost]
+        public  Question  GetQuestion(Question listQuestion)
         {
-            PutToArray(Answer, Que);
-            return Content(Que);
+            //foreach (var answer in listquestion.selectedanswer)
+            //{
+            //    if (bool.isnullorempty(answer))
+            //    {
+            //        // viewbag.message=
+            //        return "you must mark all radiobutton";
+            //    }
+            //}
+
+            //PutToArray(listQuestion.SelectedAnswer);
+            return listQuestion;
+            
+        }
+
+        public ActionResult SetQuestion(List<string> Answer)
+        {
+            PutToArray( Answer);
+            return View();
         }
         // GET: Service/Details/5
         public ActionResult Details(int id)
