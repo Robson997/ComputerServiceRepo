@@ -1,0 +1,28 @@
+﻿@model ComputerService.Models.LogicObj
+@{
+    //ViewData["Title"] = "Service";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    
+    <meta name="viewport" content="width=device-width" />
+    <title>ResultView</title>
+</head>
+<body>
+    <div>
+        <a asp-controller="Service" asp-action="GetQuestion">Back to Service</a>
+    </div>
+
+        <div class="font-italic" >
+            @Model.Result
+            
+
+    </div>
+
+
+</body>
+</html>

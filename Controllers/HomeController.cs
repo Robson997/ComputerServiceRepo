@@ -15,11 +15,13 @@ namespace ComputerService.Controllers
    
     public class HomeController : Controller
     {
+        public int amount = 0;
         readonly SqlCommand command = new SqlCommand();
         SqlDataReader datareader;
         readonly SqlConnection connection = new SqlConnection();
         public List<Item> items = new List<Item>();
         public List<Item> itemsToPost = new List<Item>();
+        public List<Item> itemsToCart = new List<Item>();
         private readonly ILogger<HomeController> _logger;
 
         public HomeController(ILogger<HomeController> logger)
@@ -29,12 +31,28 @@ namespace ComputerService.Controllers
             CatchData();
         }
 
-        public IActionResult Index()
+
+        public ActionResult Index()
         {
-            CatchData();
+            
             //FiltrData("procesor",items);
             return View(this);
         }
+        
+        public ActionResult Cart()
+        {
+
+            return View(this);
+        }
+        [HttpPost]
+        public ActionResult Cart(Item item)
+        {
+            
+            itemsToCart.Add(items[0]);
+            CatchData();
+            return View("~/Views/Home/Cart.cshtml",itemsToCart);
+        }
+     
 
         public IActionResult UpdateInex(string input)
         {
@@ -82,13 +100,14 @@ namespace ComputerService.Controllers
             {
                 connection.Open();
                 command.Connection = connection;
-                command.CommandText = "Select name, brand, type, price, image from Items";
+                command.CommandText = "Select id, name, brand, type, price, image from Items";
                 datareader = command.ExecuteReader();
                 while(datareader.Read())
                 {
                     items.Add(new Item()
 
                     {
+                        Id = datareader["id"].ToString(),
                         Name = datareader["name"].ToString(),
                         Brand = datareader["brand"].ToString(),
                         Type = datareader["type"].ToString(),

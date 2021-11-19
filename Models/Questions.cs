@@ -5,8 +5,8 @@ namespace ComputerService.Models
 {
     public class Questions : IQuestions
     {
-        private List<string> AllQuestions { get; set; }
-
+        public List<string> AllQuestions { get; set; }
+        
         public Questions()
         {
             AllQuestions = new List<string>()
@@ -19,9 +19,12 @@ namespace ComputerService.Models
                 "Does it overheat?",
                 "Is problem with devices detection?"
             };
+
         }
 
-        public List<string> GetQuestions() => AllQuestions;
+         
+
+    public List<string> GetQuestions() => AllQuestions;
 
         public int GetNumberOfQuestions() => AllQuestions.Count;
     }

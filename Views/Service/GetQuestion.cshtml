@@ -1,4 +1,7 @@
-﻿@model ComputerService.Models.Question
+﻿
+
+@model ComputerService.Models.Question
+
 
 @{
     ViewData["Title"] = "Service";
@@ -9,11 +12,12 @@
 
 <html>
 <head>
+    <link href="~/js/Service.js" rel="stylesheet" />
+    <script defer src="~/js/Service.js"></script>
     <element onclick="myScript">
         <meta name="viewport" content="width=device-width" />
         <title>Service</title>
         <div>
-            @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
             <a asp-controller="Home" asp-action="Privacy">Back to List</a>
         </div>
 </head>
@@ -24,42 +28,30 @@
     <h4>Question</h4>
     <hr />
 
-    <div class="quest">
-        <table>
-            <td>
-                @{ int total = 0; }
-                @foreach (string Q in Model.Que)
-                {
-
-
-                    Write(Q);
-
-                    <p></p>
-                    total++;
-
-                }
-            </td>
-
-            <TD>
 
                 @using (Html.BeginForm())
                 {
+
                     for (int i = 0; i < Model.Que.Count; i++)
                     {
-                        <div>
-                            Yes @Html.RadioButtonFor(Model => Model.SelectedAnswer[i], "2")
+                        <div class="quest">
+                            <div class="question">
+                                @(Model.Que[i])
+                            </div>
+                            Yes @Html.RadioButtonFor(M => Model.SelectedAnswer[i], "2")
                             No @Html.RadioButtonFor(Model => Model.SelectedAnswer[i], "1")
+     
                         </div>
                         <p></p>
                     }
-                    <input type="submit" value="Save">
-                }
-                <table id="table1" runat="server">
-                </table>
 
-            </TD>
-        </table>
-    </div>
+                    <div class="">
+                        <input class="btn btn-primary align-content-md-center" value="Submit" type="submit"  id="submit" onclick="eatFood()"  />
+                    </div>
+
+                }
+        
+
 
 </body>
 </html>

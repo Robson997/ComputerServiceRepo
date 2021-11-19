@@ -1,0 +1,50 @@
+﻿@model ComputerService.Controllers.HomeController
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Cart</title>
+    
+</head>
+<body>
+
+        @{var Data = Model.items[0]; }
+    <div class="filterDiv @Data.Type">
+        <div class="ss-container">
+            <p></p>
+            <p></p>
+            <div class="picture"><img src="/@Data.Image" width=200 height=200 alt="Alternate Text" /></div>
+            <div><h2>@Data.Name</h2></div>
+            <div class="line2">
+
+                <div class="Price">Price: <span style="color: red">$@Convert.ToInt32(Data.Price)</span></div>
+                @if (Convert.ToInt32(Data.Price) > 200)
+                {
+                    <div> transport for free </div>
+                }
+                else
+                {
+                    <div> free transort for over $200 </div>
+                }
+
+            </div>
+            <p></p>
+            <p></p>
+            <button class="btn btn-primary " type="button" onclick="location.href='@Url.Action("Cart","Home",)'"></button>
+            <p></p>
+            <p></p>
+            <p></p>
+
+        </div>
+    </div>
+
+
+    }
+  
+</body>
+</html>
