@@ -4,9 +4,11 @@ using ComputerService.Models;
 using System.Linq;
 using System.Collections.Generic;
 using Org.BouncyCastle.Utilities;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ComputerService.Controllers
 {
+    [Authorize]
 
     public class ServiceController : Controller
     {

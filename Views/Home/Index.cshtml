@@ -1,4 +1,4 @@
-﻿@model ComputerService.Controllers.HomeController
+﻿
 @{
 
     ViewData["Title"] = "Home Page";
@@ -27,18 +27,19 @@
         <meta name="viewport" content="width=device-width" />
         <title>Service</title>
         <div>
-            <a asp-controller="Home" asp-action="Privacy">Back to List</a>
+            <a asp-controller="Home" asp-action="Privacy"></a>
         </div>
 </head>
+
 <!---<div class="table">
     <table class="table">
         <thead>
             <tr>
-                @{
+                {
                     foreach (var head in TableHeadres)
                     {
                         <th>
-                            @head
+                            head
                         </th>
                     }
 
@@ -48,28 +49,18 @@
 
 
         </thead>
-        <tbody>-->
+        <tbody>
 <body>
-    <div id="myBtnContainer">
-        <button class="btn-filtr active" onclick="filterSelection('all')">
-            Show all
-        </button>
-        <button class="btn-filtr" onclick="filterSelection('Procesor')" ;> Procesor</button>
-        <button class="btn-filtr" onclick="filterSelection('monitor')" ;> Monitor</button>
-        <button class="btn-filtr" onclick="filterSelection('Card')" ;"> Cards</button>
-        <button class="btn-filtr" onclick="filterSelection('Headphones')" ;"> Headophones</button>
-        <p></p>
 
-    </div>
     <div class="s-container">
 
         @{var counter = 0;}
         @{
             if (Model != null)
             {
-                foreach (var Data in Model.items)
+                foreach (var Data in Model._items)
                 {
-                    
+
     <div class="filterDiv @Data.Type">
         <div class="ss-container">
             <p></p>
@@ -91,8 +82,9 @@
             </div>
             <p></p>
             <p></p>
-                @Model.amount = @Model.items.Count();
-            <button class="btn btn-primary " type="button" value="@Data.Id " onclick="location.href='@Url.Action("Cart","Home",Data.Id)'"></button>
+                @*Model.amount = @Model.items.Count();*@
+            @*<button class="btn btn-primary " type="button" value="@Data.Id " onclick="location.href='@Url.Action("Cart","Home",Data.Id)'"></button>*@
+            <a asp-controller="home" asp-action="buy" asp-route-id="@Data.Id">add to cart</a>
             @counter++;
             <p></p>
             <p></p>
@@ -121,5 +113,43 @@
 
                 </div>
         -->
-</body>
+
+<div id="myBtnContainer">
+    <button class="btn-filtr active" onclick="filterSelection('all')">
+        Show all
+    </button>
+    <button class="btn-filtr" onclick="filterSelection('procesor')" ;> Procesor</button>
+    <button class="btn-filtr" onclick="filterSelection('monitor')" ;> Monitor</button>
+    <button class="btn-filtr" onclick="filterSelection('Card')" ;"> Cards</button>
+    <button class="btn-filtr" onclick="filterSelection('Headphones')" ;"> Headophones</button>
+    <p></p>
+
+</div>
+<div class="s-container">
+    @foreach (var item in ViewBag.product)
+    {
+        <div class="filterDiv @item.Type">
+            <div class="ss-container">
+
+                <div class="picture"><img src="/@item.Image" width=200 height=200 alt="Alternate Text" /></div>
+                <p></p>
+                <div class="line2">
+                    @if (Convert.ToInt32(item.Price) > 200)
+                    {
+                        <div> transport for free </div>
+                    }
+                    else
+                    {
+                        <div> free transort for over $200 </div>
+                    }
+                    <div class="Price">Price: <span style="color: red">$@Convert.ToInt32(item.Price)</span></div>
+                </div>
+                    <div><h2>@item.Name</h2></div>
+                    <a class="button btn" asp-controller="cart" asp-action="buy" asp-route-id="@item.Id">add to cart</a>
+                    <p></p>
+                </div>
+            </div>
+    }
+</div>
+    </body>
 </html>

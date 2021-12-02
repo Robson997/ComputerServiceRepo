@@ -1,4 +1,4 @@
-﻿@model ComputerService.Controllers.HomeController
+﻿@model ComputerService.Models.AllItems
 @{
     Layout = null;
 }
@@ -13,7 +13,7 @@
 </head>
 <body>
 
-        @{var Data = Model.items[0]; }
+        @{var Data = Model._items[0]; }
     <div class="filterDiv @Data.Type">
         <div class="ss-container">
             <p></p>
@@ -35,7 +35,7 @@
             </div>
             <p></p>
             <p></p>
-            <button class="btn btn-primary " type="button" onclick="location.href='@Url.Action("Cart","Home",)'"></button>
+            <button class="btn btn-primary " type="button" onclick="location.href='@Url.Action("Cart","Home")'"></button>
             <p></p>
             <p></p>
             <p></p>

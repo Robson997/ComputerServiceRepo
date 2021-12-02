@@ -13,9 +13,9 @@ namespace ComputerService.Models
             {
                 "Does it turn off?",
                 "Has it problem with web-connection?",
-                "Has been bought  for more than 5 years?",
+                "Does it older than 5 years?",
                 "Does it frezee?",
-                "Have it ever any mechanical accident?",
+                "Has it ever have any mechanical accident?",
                 "Does it overheat?",
                 "Is problem with devices detection?"
             };

@@ -1,0 +1,54 @@
+﻿
+@{
+    Layout = "_Layout";
+    
+
+}
+<!DOCTYPE html>
+<html>
+<head>
+
+        <meta name="viewport" content="width=device-width" />
+        <title>Cart</title>
+
+</head>
+<body>
+    <table cellpadding="2" cellspacing="2" border="1">
+        <tr>
+            <th>Option</th>
+       <th>Name</th>
+            <th>Brand</th>
+            <th>Quantity</th>
+            <th>Photo</th>
+            <th>Quantity</th>
+        </tr>
+        @foreach (var item in ViewBag.cart)
+        {
+    <tr class="text-center">
+        <td> <a class="button btn " asp-controller="cart" asp-action="remove" asp-route-id="@item.Product.Id">Remove</a></td>
+
+        <td>@item.Product.Name</td>
+        <td>@item.Product.Brand</td>
+        <td>@item.Amount</td>
+        <td><img src="/@item.Product.Image" width=60 height=60 alt="Alternate Text" /></td>
+        <td>@item.Product.Price</td>
+
+    </tr>
+
+        }
+    <tr>
+        <td align="right" colspan="6">Sum</td>
+        <td> @ViewBag.total</td>
+    </tr>    
+
+        
+    </table>
+    <br />
+    <a class=" btn btn-primary" asp-controller="home" asp-action="index">
+        Continue shopping
+    </a>
+    <a class=" btn btn-primary" asp-controller="checkout" asp-action="index" asp-route-id="">Order summary</a>
+</body>
+
+</html>
+
