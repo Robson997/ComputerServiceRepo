@@ -8,14 +8,9 @@ namespace ComputerService.Models
     public class Logic
     {
 
-        public List<string> AllResult { get; set; }
-
-        public string[] Ar0 = new string[] { "2", "1", "1", "1", "1", "1", "1" };
-        public string[] Ar1 = new string[] { "1", "2", "1", "1", "1", "1", "1" };
-        public string[] Ar2 = new string[] { "1", "1", "1", "1", "1", "2", "1" };
-        public string[] Ar3 = new string[] { "2", "2", "2", "2", "2", "2", "2" };
-        public string[] Ar4 = new string[] { "1", "2", "2", "2", "2", "2", "2" };
-        public string[] Ar5 = new string[] { "1", "1", "2", "2", "2", "2", "2" };
+        public List<string> AllResult { get; set; }//List off all possible result
+        public List<string> Result { get; set; }//List of Result
+        public string[] Ar0;
         public Logic()
         {
             AllResult = new List<string>()
@@ -27,13 +22,17 @@ namespace ComputerService.Models
                 "(usually one of them informs about the status of the Internet connection). " +
                 "If the router connects correctly to our ISP's network and the user still " +
                 "has no access, please contact the ISP.",                
-                "Option3",
-                "Option4",                
-                "Option5",
+                "You should buy new one",
+                "You should buy extra RAM or",
+                "Contact with our best specialists",
+                "Maybe clean your computer inside or buy a new cooling",
+                "Upload a new Drivers or check out your plug in",
                 "Unfortunetly we havent any idea about slove your problem with your PC" +
                 "Please try to contact with our Service - phone number: 666 777 888",
 
             };
+            Result = new List<string>();
+            Ar0 = new string[] { "1", "1", "1", "1", "1", "1", "1" };//case with all answes are "no"
         }
 
 

@@ -17,6 +17,7 @@ namespace ComputerService.Controllers
         private readonly Question _question;
         private readonly Questions _questions;
         private readonly Logic _logic;
+        private readonly Logic _resultlogic = new Logic();//create a list of all possible solutions
 
         #endregion
 
@@ -43,52 +44,33 @@ namespace ComputerService.Controllers
         public ActionResult GetQuestion(Question listQuestion)
         {
            
-            Logic logic = new Logic();//create a list of all possible solutions
 
             if (listQuestion.SelectedAnswer.Count == _questions.GetNumberOfQuestions())
             {
-                if (listQuestion.SelectedAnswer.ToArray().SequenceEqual(logic.Ar1))
+
+                for (int i = 0; i < _questions.GetNumberOfQuestions(); i++)
                 {
-                    LogicObj logic1 = new LogicObj();
-                    logic1.Result = logic.AllResult[1];//posible solution 
-                    
-                    return View("~/Views/Service/ResultView.cshtml", logic1);
+                    if (listQuestion.SelectedAnswer[i] == "2")
+                    {
+
+                        _resultlogic.Result.Add(_resultlogic.AllResult[i]);
+
+                    }
                 }
-                else if(listQuestion.SelectedAnswer.ToArray().SequenceEqual(logic.Ar0))
+                if (listQuestion.SelectedAnswer.ToArray().SequenceEqual(_logic.Ar0))
                 {
-                    LogicObj logic1 = new LogicObj();
-                    logic1.Result = logic.AllResult[0];//posible solution 
-                    return View("~/Views/Service/ResultView.cshtml", logic1);
-                }                
-                else if(listQuestion.SelectedAnswer.ToArray().SequenceEqual(logic.Ar2))
-                {
-                    LogicObj logic1 = new LogicObj();
-                    logic1.Result = logic.AllResult[2];//posible solution 
-                    return View("~/Views/Service/ResultView.cshtml", logic1);
-                }                
-                else if(listQuestion.SelectedAnswer.ToArray().SequenceEqual(logic.Ar3))
-                {
-                    LogicObj logic1 = new LogicObj();
-                    logic1.Result = logic.AllResult[3];//posible solution 
-                    return View("~/Views/Service/ResultView.cshtml", logic1);
+                    _resultlogic.Result.Add(_resultlogic.AllResult[7]);
+                    return View("~/Views/Service/ResultView.cshtml", _resultlogic);
                 }
-                else
-                {
-                    LogicObj logic1 = new LogicObj();
-                    logic1.Result = logic.AllResult[5]; 
-                    return View("~/Views/Service/ResultView.cshtml", logic1);
-                }
+
+                    return View("~/Views/Service/ResultView.cshtml", _resultlogic);
             }
             else
             {
-                return View("~/Views/Service/ResultView.cshtml",logic);
+                return View("~/Views/Service/ResultView.cshtml", _resultlogic);
             }
         }
 
-        public void ServiceLogic()
-        {
-            ;
-        }
 
         [HttpGet]
         public ActionResult ViewResult(LogicObj logic)

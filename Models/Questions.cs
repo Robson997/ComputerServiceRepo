@@ -15,7 +15,7 @@ namespace ComputerService.Models
                 "Has it problem with web-connection?",
                 "Does it older than 5 years?",
                 "Does it frezee?",
-                "Has it ever have any mechanical accident?",
+                "Has it ever had any mechanical accident?",
                 "Does it overheat?",
                 "Is problem with devices detection?"
             };

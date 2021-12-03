@@ -1,6 +1,6 @@
-﻿@model ComputerService.Models.LogicObj
+﻿@model ComputerService.Models.Logic
 @{
-    //ViewData["Title"] = "Service";
+  
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -18,7 +18,12 @@
     </div>
 
         <div class="font-italic" >
-            @Model.Result
+            @foreach (var q in Model.Result)
+            {
+            <p>
+                @{Write(q);}
+            </p>
+            }
             
 
     </div>

@@ -7,6 +7,6 @@ namespace ComputerService.Models
 {
     public class LogicObj
     {
-        public string Result { get; set; }
+        public List<string> Result { get; set; }
     }
 }
